@@ -7,4 +7,12 @@ app.config["DEBUG"] = True
 def home():
     return "OK\n"
 
+@app.route('/health')
+def health():
+    return "OK\n"
+
+@app.route('/metrics')
+def metrics():
+    return "metrics coming soon\n"
+
 app.run()
