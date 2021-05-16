@@ -19,7 +19,7 @@ services:
     depends_on:
       - api
     volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml:z
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:z
     logging:
       driver: "json-file"
       options:
