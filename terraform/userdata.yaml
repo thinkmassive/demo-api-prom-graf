@@ -1,0 +1,20 @@
+#cloud-config
+output: {all: '| tee -a /var/log/cloud-init-output.log'}
+
+#repo_update: true
+#repo_upgrade: all
+
+# Upgrade the instance on first boot
+# (e.g. run 'apt-get upgrade')
+package_upgrade: true
+
+packages:
+  - docker.io
+  - docker-compose
+  - git
+
+runcmd:
+  - [ sh, -c, "usermod -aG docker ubuntu" ]
+  - systemctl start docker
+  - [ sh, -c, "git clone https://github.com/thinkmassive/demo-api-prom-graf.git /opt/demo"]
+  - [ sh, -c, "cd /opt/demo && docker-compose up -d" ]
