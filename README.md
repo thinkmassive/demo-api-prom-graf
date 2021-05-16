@@ -9,4 +9,5 @@ curl localhost:5000/health
 curl localhost:5000/metrics
 ```
 
-Prometheus web UI: http://localhost:9090
+  - Prometheus web UI: http://localhost:9090
+  - Grafana web UI: http://localhost:3000

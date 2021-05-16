@@ -26,3 +26,15 @@ services:
         max-size: 100m
     ports:
       - "9090:9090"
+
+  grafana:
+    image: docker.io/grafana/grafana:7.5.6
+    depends_on:
+      - prometheus
+    #volumes:
+    logging:
+      driver: "json-file"
+      options:
+        max-size: 100m
+    ports:
+      - "3000:3000"
