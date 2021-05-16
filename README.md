@@ -3,11 +3,10 @@
 ## Demo of a flask API w/metrics exporter, prometheus & grafana
 
 ```bash
-docker build -t demo-api-prom-graf:latest .
-docker run --rm -d \
-    --net host \
-    --name api \
-    demo-api-prom-graf:latest
+docker-compose up -d
 
 curl localhost:5000/health
+curl localhost:5000/metrics
 ```
+
+Prometheus web UI: http://localhost:9090
