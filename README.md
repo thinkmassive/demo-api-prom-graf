@@ -4,7 +4,10 @@
 
 ```bash
 docker build -t demo-api-prom-graf:latest .
-docker run -d --net host demo-api-prom-graf:latest
+docker run --rm -d \
+    --net host \
+    --name api \
+    demo-api-prom-graf:latest
 
-curl localhost:5000
+curl localhost:5000/health
 ```
