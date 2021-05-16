@@ -27,7 +27,7 @@ terraform destroy
 
 The public IP of the EC2 instance will be displayed after a successful apply. You can use that to reach the following:
 
-  - ssh: `ssh -i demo_key.pem $public_ip` (port 22)
+  - ssh: `ssh -i demo_key.pem ubuntu@$public_ip` (port 22)
   - api: port 5000
   - grafana: port 3000 (u/p: `admin` / `foobar`)
   - prometheus: port 9090

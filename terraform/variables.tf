@@ -10,19 +10,15 @@ variable "instance_type" {
 
 variable "ssh_keypair_name" {
   description = "EC2 keypair name"
-  default     = "amiller"
+  default     = "demo_key"
 }
 
 variable "aws_tags" {
   description = "Tags to use for all AWS resources"
   type        = map(string)
   default     = {
-    OwnedBy = "amiller"
+    OwnedBy = "demo_user"
   }
-}
-
-variable "myip" {
-  description = "My IP address (use '0.0.0.0' to allow the world - THIS IS INSECURE)"
 }
 
 variable "docker_host_ami" {

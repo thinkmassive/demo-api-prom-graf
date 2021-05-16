@@ -10,6 +10,10 @@ data "template_file" "user_data" {
   template = file("./userdata.yaml")
 }
 
+data "http" "myip" {
+  url = "http://ifconfig.co"
+}
+
 resource "tls_private_key" "ssh" {
   algorithm = "RSA"
   rsa_bits  = 4096
@@ -58,7 +62,7 @@ resource "aws_security_group" "docker_host_sg" {
     from_port = 22
     to_port   = 22
     protocol  = "tcp"
-    cidr_blocks = ["${var.myip}/32"]
+    cidr_blocks = ["${chomp(data.http.myip.body)}/32"]
   }
 
   ingress {
@@ -66,8 +70,7 @@ resource "aws_security_group" "docker_host_sg" {
     from_port = 5000
     to_port   = 5000
     protocol  = "tcp"
-    cidr_blocks = ["${var.myip}/32"]
-    #self      = true
+    cidr_blocks = ["${chomp(data.http.myip.body)}/32"]
   }
 
   ingress {
@@ -75,8 +78,7 @@ resource "aws_security_group" "docker_host_sg" {
     from_port = 3000
     to_port   = 3000
     protocol  = "tcp"
-    cidr_blocks = ["${var.myip}/32"]
-    #self      = true
+    cidr_blocks = ["${chomp(data.http.myip.body)}/32"]
   }
 
   ingress {
@@ -84,8 +86,7 @@ resource "aws_security_group" "docker_host_sg" {
     from_port = 9090
     to_port   = 9090
     protocol  = "tcp"
-    cidr_blocks = ["${var.myip}/32"]
-    #self      = true
+    cidr_blocks = ["${chomp(data.http.myip.body)}/32"]
   }
 
   egress {

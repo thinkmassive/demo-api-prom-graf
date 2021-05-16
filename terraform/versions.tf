@@ -3,6 +3,7 @@ terraform {
 
   required_providers {
     aws      = ">= 3.40.0"
+    http     = ">=2.1.0"
     local    = ">= 2.1.0"
     template = ">= 2.2.0"
     tls      = ">= 3.1.0"
