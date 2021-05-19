@@ -1,11 +1,10 @@
 ---
 version: '2.1'
-#volumes:
 services:
   api:
     build:
       context: ./api
-    image: demo-flask-prom:v0.1-alpha
+    image: demo-flask-prom:v0.1.1-alpha
     ports:
       - "5000:5000"
     logging:
