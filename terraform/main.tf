@@ -11,7 +11,8 @@ data "template_file" "user_data" {
 }
 
 data "http" "myip" {
-  url = "http://ifconfig.co"
+  #url = "http://ifconfig.co"
+  url = "https://icanhazip.com"
 }
 
 resource "tls_private_key" "ssh" {
