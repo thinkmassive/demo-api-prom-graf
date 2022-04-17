@@ -44,32 +44,32 @@ services:
     ports:
       - "3000:3000"
 
-  loadgen:
-    build:
-      context: ./loadgen
-    image: loadgen:latest
-    depends_on:
-      - api
-    environment:
-      - "ENDPOINT=http://api:5000/price"
-      - "INTERVAL_RANGE_SEC=5"
-
-  loadgen-fast:
-    build:
-      context: ./loadgen
-    image: loadgen:latest
-    depends_on:
-      - api
-    environment:
-      - "ENDPOINT=http://api:5000/fast"
-      - "INTERVAL_RANGE_SEC=1"
-
-  loadgen-slow:
-    build:
-      context: ./loadgen
-    image: loadgen:latest
-    depends_on:
-      - api
-    environment:
-      - "ENDPOINT=http://api:5000/slow"
-      - "INTERVAL_RANGE_SEC=1"
+#  loadgen:
+#    build:
+#      context: ./loadgen
+#    image: loadgen:latest
+#    depends_on:
+#      - api
+#    environment:
+#      - "ENDPOINT=http://api:5000/price"
+#      - "INTERVAL_RANGE_SEC=5"
+#
+#  loadgen-fast:
+#    build:
+#      context: ./loadgen
+#    image: loadgen:latest
+#    depends_on:
+#      - api
+#    environment:
+#      - "ENDPOINT=http://api:5000/fast"
+#      - "INTERVAL_RANGE_SEC=1"
+#
+#  loadgen-slow:
+#    build:
+#      context: ./loadgen
+#    image: loadgen:latest
+#    depends_on:
+#      - api
+#    environment:
+#      - "ENDPOINT=http://api:5000/slow"
+#      - "INTERVAL_RANGE_SEC=1"
