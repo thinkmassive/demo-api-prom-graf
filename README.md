@@ -1,8 +1,16 @@
-# demo-api-prom-graf
+# aperture-flask-demo
 
 ## Demo of a flask API w/metrics exporter, prometheus & grafana
 
-This is a very simple containerized demo of Grafana and Prometheus gathering metrics from a Flask API service. It can be run locally using Docker Compose, or use Terraform to provision an EC2 instance and automatically deploy the docker-compose setup.
+This is a very simple containerized demo of Grafana and Prometheus gathering metrics from a Flask API service.
+
+It can be run locally using Docker Compose, or use Terraform to provision an EC2 instance and automatically deploy the docker-compose setup.
+
+### Aperture LSAT proxy
+
+The demo is being extended to run behind an [Aperture](https://github.com/lightninglabs/aperture) reverse proxy that requires paying an [LSAT](https://lsat.tech) invoice to access the protected endpoints.
+
+It works in its current form, tested with a simnet network in [Polar](https://lightningpolar.com). Documentation coming soon.
 
 ### Docker Compose Quickstart
 
